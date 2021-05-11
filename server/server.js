@@ -1,9 +1,7 @@
 const express = require('express');
 const SpotifyWebApi = require("spotify-web-api-node")
-// encountered issue with CORS policy blocking
-const cors = require('cors');
-// use for parsing json
-const bodyParser = require('body-parser');
+const cors = require('cors');   // encountered issue with CORS policy blocking
+const bodyParser = require('body-parser');  // use for parsing json
 require('dotenv').config()
 
 const app = express();
@@ -37,7 +35,7 @@ app.post('/login', (req, res) => {
     const code = req.body.code
     const spotifyApi = new SpotifyWebApi({
         clientId : '9df59c7cd0ed4590a8d50badc32fe8a1',
-        clientSecret : 'a37e01e02bbd4f51a48077dbebc8e707',
+        clientSecret : process.env.CLIENT_SECRET,
         redirectUri : 'http://localhost:3000',
     })
 
