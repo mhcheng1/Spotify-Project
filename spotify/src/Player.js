@@ -5,9 +5,10 @@ import {useState, useEffect} from 'react'
 
 // uses Spotify Web Player to handle the playing functions
 // https://www.npmjs.com/package/react-spotify-web-playback
-export default function Player({ accessToken, trackUri}) {    
+export default function Player({ accessToken, trackUri, playedTrack}) {    
     const [play, setPlay] = useState(false)
     useEffect(() => setPlay(true), [trackUri])
+    
     if (!accessToken) return null
     
     return (

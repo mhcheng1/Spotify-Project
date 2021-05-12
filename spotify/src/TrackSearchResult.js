@@ -1,8 +1,16 @@
 import React from 'react'
+import axios from 'axios'
 
 export default function TrackSearchResult({ track, chooseTrack}) {
     function handlePlay() {
         chooseTrack(track);
+        const playedSong = {
+            title: track.title,
+            artist: track.artist,
+            albumCover: track.albumUrl
+        }
+        console.log(playedSong)
+        axios.post('http://localhost:3001/history/add', playedSong)
     }
 
     return (
