@@ -7,7 +7,6 @@ import TrackSearchResult from './TrackSearchResult'
 import Player from './Player' 
 import TopArtists from './TopArtists'
 import Button from 'react-bootstrap/Button'
-import ShowHistory from './ShowHistory'
 import axios from 'axios'
 
 const spotifyApi = new SpotifyWebApi({
@@ -36,7 +35,6 @@ export default function Dashboard({ code }) {
             method: "GET"
         })
         setPlayedHistory(response.data)
-        console.log(playedHistory)
         }
     }
 
@@ -96,17 +94,15 @@ export default function Dashboard({ code }) {
     }, [search, accessToken])
 
 
-
+    // {playedHistory.map( history =>(
+    //     <ShowHistory history={history} />
+    // ))}
     return (
         <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
             <Form.Control type="search" placeholder="Artists, songs, or albums" 
             value={search} onChange={e => setSearch(e.target.value)} />
             <div className="d-flex flex-row mt-3">
                 <h3><font color="white">Your Top Artists</font></h3>
-                <Button bsStyle="primary" className="mx-3 mb-2">History</Button>
-                    {playedHistory.map( history =>(
-                        <ShowHistory history={history} />
-                    ))}
             </div>
             <div className="d-flex flex-row mb-3" style={{ overflowY: "auto" }}>
                 <div className="split right">

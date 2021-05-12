@@ -11,7 +11,7 @@ export default function Login() {
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
             <div className="ml-10">
-                <h1>
+                <h1 className="mx-3">
                     <font color="white">  
                         Welcome <br></br>  
                     </font>
