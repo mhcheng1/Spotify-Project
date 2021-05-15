@@ -35,3 +35,13 @@
     right: 0;
     background-color: #212121;
   }
+
+
+  .graph-top-margin{
+    float: none;
+    margin-top: 100px;
+}
+
+.div-1 {
+  background-color: #645d5d;
+}

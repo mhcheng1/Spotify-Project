@@ -3,10 +3,6 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import HistoryPage from './HistoryPage'
 import {Container, Form} from 'react-bootstrap'
-import Button from 'react-bootstrap/Button'
-import TopArtists from './TopArtists'
-import SpotifyWebApi from 'spotify-web-api-node'
-import useAuth from './useAuth'
 
 
 export default function ShowHistory() {
