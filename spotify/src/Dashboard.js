@@ -11,7 +11,7 @@ import axios from 'axios'
 import Info from './Info'
 import ArtistTreeMap from './ArtistTreeMap'
 import GenreTreeMap from './GenreTreeMap'
-import ShowRadarChart from './ShowRadarChart'
+import ShowRadio from './ShowRadio'
 
 const spotifyApi = new SpotifyWebApi({
     clientId : '9df59c7cd0ed4590a8d50badc32fe8a1'
@@ -188,26 +188,37 @@ export default function Dashboard({ code }) {
                 <Player accessToken={accessToken} trackUri={playingTrack?.uri} playedTrack={playedTrack}/>
             </div>
         </Container>
-            <Container className="d-flex flex-column" style={{ height: "100vh" }}> 
-                <div className="graph-top-margin">
-                    <GenreTreeMap table={table} />
-                </div>
-            </Container>
-            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
-                <div className="div-1">
-                    <ShowRadarChart audioFeats={audioFeats} />
-                </div>
-            </Container>
-            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
+            <Container className="d-flex flex-column mt-5" style={{ height: "100vh" }}> 
+                <h3 className="graph-top-margin mb-3"><font color="white">How often an Artist Appears in your Top 50 Tracks</font></h3>
                 <div>
                     <ArtistTreeMap table={table} />
                 </div>
             </Container>
+            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+                <h3 className="mb-3"><font color="white">Your Favorite Genres</font></h3>
+                <div className="d-flex flex-row">
+                    <GenreTreeMap table={table} />
+                </div>
+            </Container>
             <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
-                <h3><font color="white">The Duration of Your Top Songs</font></h3>
+                <h3 className="mb-3"><font color="white">The Duration of Your Top Songs</font></h3>
                 <div>
                     <div className="text-muted p"># of songs</div>
                     <Info table={table} />
+                </div>
+            </Container>
+            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
+                <h3 className="mb-3"><font color="white">The Audio Features You Prefer</font></h3>
+                <div className="d-flex flex-row div-1 ">
+                    <ShowRadio audioFeats={audioFeats} />
+                    <div className="d-flex flex-column py-4 mt-3 mx-5">
+                        <h4 className="mt-3 mb-3 centerRight">What the Values Represent:</h4>
+                        <p className="centerRight">Accousticness: How acoustic a song is</p>
+                        <p className="centerRight">Danceability: How suitable is a song for dancing</p>
+                        <p className="centerRight">Energy: Measured by intensity and activity</p>
+                        <p className="centerRight">Livness: Measured by involvment of audience</p>
+                        <p className="centerRight">Instrument: Measured by the absence of vocal</p>
+                    </div>
                 </div>
             </Container>
         </Container>

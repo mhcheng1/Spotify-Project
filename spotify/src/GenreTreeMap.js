@@ -8,7 +8,6 @@ export default function GenreTreeMap ( {table} ) {
     const [data, setData] = useState([])
     var newGenre = []
     var seenGenre = []
-    
 
 
     useEffect(() => {
@@ -41,18 +40,46 @@ export default function GenreTreeMap ( {table} ) {
 
     }, [table])
 
+
+    const [topGenre, setTopGenre] = useState([])
+    var largestCount= 0
+    useEffect(() => {
+        console.log(treeMap)
+        for (var i = 0; i < treeMap.length; i++) {
+            if (treeMap[i].size > largestCount) {
+                console.log(treeMap[i])
+                largestCount = treeMap[i].size
+                var songCount = treeMap[i].size - 100
+                var total = 0
+                while (songCount >= 0) {
+                    songCount = songCount - 30
+                    total++
+                }
+                setTopGenre({TopGenre: treeMap[i].name, Count: total})
+            }
+        }
+    }, [treeMap])
+
   return (
-    <Treemap 
-      width={600}
-      height={400}
-      data={[{
-        name: "genres",
-        children: treeMap
-        }]}
-      dataKey="size"
-      ratio={4 / 3}
-      stroke="#fff"
-      fill="#8884d8"
-    />
+    <div className="d-flex flex-row">
+        <Treemap 
+        width={600}
+        height={400}
+        data={[{
+            name: "genres",
+            children: treeMap
+            }]}
+        dataKey="size"
+        ratio={4 / 3}
+        stroke="#fff"
+        fill="#8884d8"
+        />
+        <div className="centerRight mb-3">
+            <h5><font color="white">Here's the genre you listened to the most: </font></h5>
+            <br></br>
+            <h5><font color="white">{topGenre.TopGenre} </font></h5>
+            <p><font color="white" className="text-muted">{topGenre.Count} out of 50 tracks </font></p>
+        </div>
+    </div>
   );
 }
