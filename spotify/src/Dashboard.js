@@ -6,15 +6,17 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import TrackSearchResult from './TrackSearchResult'
 import Player from './Player' 
 import TopArtists from './TopArtists'
-import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import Info from './Info'
 import ArtistTreeMap from './ArtistTreeMap'
 import GenreTreeMap from './GenreTreeMap'
 import ShowRadio from './ShowRadio'
+require('dotenv').config()
 
 const spotifyApi = new SpotifyWebApi({
-    clientId : '9df59c7cd0ed4590a8d50badc32fe8a1'
+    clientId : '9df59c7cd0ed4590a8d50badc32fe8a1',
+    clientSecret : 'a37e01e02bbd4f51a48077dbebc8e707',
+    redirectUri : 'https://compassionate-swartz-d79cd2.netlify.app/',
 })
 
 export default function Dashboard({ code }) {
@@ -25,13 +27,14 @@ export default function Dashboard({ code }) {
     const [playingTrack, setPlayingTrack] = useState()
     const [topArtists, setTopArtists] = useState([])
     const [playedTrack, setPlayedTrack] = useState([])
-    const [playedHistory, setPlayedHistory] = useState([])
+    //const [playedHistory, setPlayedHistory] = useState([])
     const [topTracks, setTopTracks] = useState([])
     const [artistGenre, setArtistGenre] = useState([])
     const [table, setTable] = useState([])
     const [topTrackIDs, setTopTrackIDs] = useState([])
     const [audioFeats, setAudioFeats] = useState([])
 
+    console.log(accessToken)
 
 
     function chooseTrack(track) {
@@ -39,13 +42,13 @@ export default function Dashboard({ code }) {
         setPlayedTrack(track)
         
         // get history from database
-        const history = async () =>{
-        const response = await axios ({
-            url: "http://localhost:3001/history",
-            method: "GET"
-        })
-        setPlayedHistory(response.data)
-        }
+        // const history = async () =>{
+        // const response = await axios ({
+        //     url: "https://mhcheng-spotify.herokuapp.com/history",
+        //     method: "GET"
+        // })
+        // setPlayedHistory(response.data)
+        // }
     }
 
     // get top artists and tracks of user
@@ -70,7 +73,7 @@ export default function Dashboard({ code }) {
         })
 
         // get top tracks
-        spotifyApi.getMyTopTracks({time_range: 'short_term', limit: 5})
+        spotifyApi.getMyTopTracks({time_range: 'short_term', limit: 50})
         .then(res => { 
             setTopTracks( res.body.items.map(track => {
                     if (!track.album.images[0]) return "No image"
@@ -132,7 +135,7 @@ export default function Dashboard({ code }) {
                     }
                 })
             }
-        axios.post("http://localhost:3001/api/insert", topTracks)
+        axios.post("https://mhcheng-spotify.herokuapp.com/api/insert", topTracks)
         
         // assign top track IDs
         setTopTrackIDs(topTracks.map(track=> {
@@ -143,8 +146,8 @@ export default function Dashboard({ code }) {
 
     useEffect(() => {
         if (artistGenre.length >= topTracks.length && artistGenre.length !== 0) {
-            axios.post("http://localhost:3001/api/insertGenre", artistGenre)
-            axios.get("http://localhost:3001/api/get").then(response =>{
+            axios.post("https://mhcheng-spotify.herokuapp.com/api/insertGenre", artistGenre)
+            axios.get("https://mhcheng-spotify.herokuapp.com/api/get").then(response =>{
                 setTable(response.data)
             })
         }
@@ -161,6 +164,11 @@ export default function Dashboard({ code }) {
         });
     }, [topTrackIDs])
     
+    var toPost = true
+    if (toPost === true) {
+        axios.post("https://mhcheng-spotify.herokuapp.com/test", "hello world")
+        toPost = false
+    }
 
     return (
         <Container>
@@ -169,8 +177,6 @@ export default function Dashboard({ code }) {
             value={search} onChange={e => setSearch(e.target.value)} />
             <div className="d-flex flex-row mt-3">
                 <h3><font color="white">Your Top Artists</font></h3>
-                <Button bsStyle="primary" size="lg">Insert</Button>
-                <Button bsStyle="primary" size="lg">test</Button>
             </div>
             <div className="d-flex flex-row mb-3" style={{ overflowY: "auto" }}>
                 <div className="split right">

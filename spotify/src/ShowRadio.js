@@ -33,7 +33,6 @@ export default function ShowRadio( {audioFeats} ) {
     var totalDance = 0
     useEffect(() => {
         if (audioFeats.length > 0) {
-            console.log(audioFeats)
             for (var i = 0; i < audioFeats.length; i++) {
                 totalAcous += audioFeats[i].acousticness
                 totalInstru += audioFeats[i].instrumentalness

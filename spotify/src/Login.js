@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import "./styles.css";
 import Button from 'react-bootstrap/Button'
 
-const AUTH_URL =   "https://accounts.spotify.com/authorize?client_id=9df59c7cd0ed4590a8d50badc32fe8a1&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20user-top-read"
+const AUTH_URL =   "https://accounts.spotify.com/authorize?client_id=9df59c7cd0ed4590a8d50badc32fe8a1&response_type=code&redirect_uri=https://compassionate-swartz-d79cd2.netlify.app/&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20user-top-read"
 
 export default function Login() {
     document.body.style = 'background: #2E2E2E;';
