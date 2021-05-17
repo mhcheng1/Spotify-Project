@@ -163,7 +163,7 @@ export default function Dashboard({ code }) {
     
 
     return (
-        <Container>
+        <Container className="mt-3">
         <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
             <Form.Control type="search" placeholder="Artists, songs, or albums" 
             value={search} onChange={e => setSearch(e.target.value)} />

@@ -15,20 +15,7 @@ function App() {
   }
   else if (code) {
     return (
-      <Router>
-        <Navbar />
-            <Router path="/dashboard">
-              <Dashboard code={code} />
-            </Router>
-          <Switch>
-            <Router path="/history">
-              <ShowHistory code={code} />
-            </Router>
-            <Router path="/info">
-              <Info />
-            </Router>
-          </Switch>
-      </Router>
+        <Dashboard code={code} />
     )
   }
 
