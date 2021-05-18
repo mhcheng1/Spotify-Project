@@ -12,6 +12,7 @@ import Info from './Info'
 import ArtistTreeMap from './ArtistTreeMap'
 import GenreTreeMap from './GenreTreeMap'
 import ShowRadio from './ShowRadio'
+import UserForm from './UserForm'
 
 const spotifyApi = new SpotifyWebApi({
     clientId : '9df59c7cd0ed4590a8d50badc32fe8a1'
@@ -31,8 +32,11 @@ export default function Dashboard({ code }) {
     const [table, setTable] = useState([])
     const [topTrackIDs, setTopTrackIDs] = useState([])
     const [audioFeats, setAudioFeats] = useState([])
-
-
+    const [userForm, setUserForm] = useState([{tempo: 0, danceability: 0, loudness: 0}])
+    
+    // tempo
+    // danceability
+    // loudness
 
     function chooseTrack(track) {
         setPlayingTrack(track)
@@ -70,7 +74,7 @@ export default function Dashboard({ code }) {
         })
 
         // get top tracks
-        spotifyApi.getMyTopTracks({time_range: 'short_term', limit: 5})
+        spotifyApi.getMyTopTracks({time_range: 'short_term', limit: 50})
         .then(res => { 
             setTopTracks( res.body.items.map(track => {
                     if (!track.album.images[0]) return "No image"
@@ -162,6 +166,32 @@ export default function Dashboard({ code }) {
     }, [topTrackIDs])
     
 
+    const [tempoV, setTempoV] = useState(0)
+    const [danceV, setDanceV] = useState(0)
+    const [loudV, setLoudV] = useState(0)
+
+    const handleChangeTempo =(e)=>{
+        setTempoV(e.target.value)
+    }
+
+    const handleChangeDance =(e)=>{
+        setDanceV(e.target.value)
+    }
+
+    const handleChangeLoud =(e)=>{
+        setLoudV(e.target.value)
+    }
+
+    const handleChangeForm = (e)=>{
+        setUserForm([{
+          tempo: tempoV,
+          danceability: danceV,
+          loudness: loudV
+        }])
+    }
+
+
+
     return (
         <Container className="mt-3">
         <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
@@ -219,6 +249,57 @@ export default function Dashboard({ code }) {
                         <p className="centerRight">Livness: Measured by involvment of audience</p>
                         <p className="centerRight">Instrument: Measured by the absence of vocal</p>
                     </div>
+                </div>
+            </Container>
+            <Container style={{ height: "100vh" }}> 
+                <form className="d-flex flex-column py-2 center">
+                <h3 className="mb-2"><font color="white">Find a Song to Your Mood</font></h3>
+                    <font color="white" className="mb-1">Tempo</font>
+                    <div className="d-flex flex-row mb-3">
+                        <input type="radio" value="1"
+                            onChange={handleChangeTempo} name="tempo" />
+                            <font color="white">Slow</font>
+                        <input type="radio" value="2"
+                            onChange={handleChangeTempo} name="tempo" />
+                            <font color="white">Medium</font>
+                        <input type="radio" value="3"
+                            onChange={handleChangeTempo} name="tempo"/>
+                            <font color="white">Fast</font>
+                    </div>
+                    
+                    <font color="white" className="mb-1">Danceability</font>
+                    <div className="d-flex flex-row mb-3">
+                        <input type="radio" value="1"
+                            onChange={handleChangeDance} name="danceability" />
+                            <font color="white">Chill</font>
+                        <input type="radio" value="2"
+                            onChange={handleChangeDance} name="danceability" />
+                            <font color="white">Groovy</font>
+                        <input type="radio" value="3"
+                            onChange={handleChangeDance} name="danceability"/>
+                            <font color="white">Dance!</font>
+                    </div>
+
+                    <font color="white" className="mb-1">Loudness</font>
+                    <div className="d-flex flex-row mb-3">
+                        <input type="radio" value="1"
+                            onChange={handleChangeLoud} name="loudness" />
+                            <font color="white">Quiet</font>
+                        <input type="radio" value="2"
+                            onChange={handleChangeLoud} name="loudness" />
+                            <font color="white">Normal</font>
+                        <input type="radio" value="3"
+                            onChange={handleChangeLoud} name="loudness"/>
+                            <font color="white">Loud</font>
+                    </div>
+                    <input type="checkbox"
+                            onChange={handleChangeForm} />
+                            <font color="white">Submit</font>
+                </form>
+                <div>
+                    {userForm.map(userForm =>(
+                            <UserForm  audioFeats={audioFeats} userForm={userForm} />
+                    ))}
                 </div>
             </Container>
         </Container>

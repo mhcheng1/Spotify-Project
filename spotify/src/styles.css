@@ -57,3 +57,11 @@
 .auto {
   margin: auto;
 }
+
+.label {
+  color:white
+}
+
+.ml-1 {
+  margin-left: 10px;
+}

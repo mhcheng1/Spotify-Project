@@ -105,7 +105,14 @@ app.get("/api/get", (req, res) => {
   })
 })
 
-
+app.get("/api/getTrackInfo", (req, res) => {
+  let param = req.query.trackID
+  const sqlSelect = "SELECT * FROM user WHERE trackID=?"
+  db.query(sqlSelect, [param] , (err, results) => {
+    res.send(results)
+    //res.send(tempID)
+  })
+})
 
 // https://github.com/BrOrlandi/spotify-web-api-node
 // follow structure given in authorization section to translate token from code
