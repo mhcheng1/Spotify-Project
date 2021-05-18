@@ -10,7 +10,7 @@ export default function TrackSearchResult({ track, chooseTrack}) {
             albumCover: track.albumUrl
         }
         console.log(playedSong)
-        axios.post('http://localhost:3001/history/add', playedSong)
+        axios.post('https://mhcheng-spotify.herokuapp.com/history/add', playedSong)
     }
 
     return (
