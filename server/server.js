@@ -82,6 +82,16 @@ var db_config = {
       })
     })
 
+  
+  app.get("/api/getTrackInfo", (req, res) => {
+      let param = req.query.trackID
+      const sqlSelect = "SELECT * FROM user WHERE trackID=?"
+      connection.query(sqlSelect, [param] , (err, results) => {
+        res.send(results)
+        //res.send(tempID)
+      })
+  })
+
     // handles top track insertion
   app.post("/api/insert", (req, res) => {
     var track
