@@ -44,10 +44,8 @@ export default function GenreTreeMap ( {table} ) {
     const [topGenre, setTopGenre] = useState([])
     var largestCount= 0
     useEffect(() => {
-        console.log(treeMap)
         for (var i = 0; i < treeMap.length; i++) {
             if (treeMap[i].size > largestCount) {
-                console.log(treeMap[i])
                 largestCount = treeMap[i].size
                 var songCount = treeMap[i].size - 100
                 var total = 0

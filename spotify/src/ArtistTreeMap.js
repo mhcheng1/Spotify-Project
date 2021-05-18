@@ -26,6 +26,7 @@ export default function ArtistTreeMap ( {table} ) {
 
 
     useEffect(() => {
+      console.log(treeMap)
         if (table.length > 0) {
             for (var i = 0; i < table.length; i++) {
                 if (seenartist.indexOf(table[i].artist) > -1) {
