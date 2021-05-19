@@ -218,26 +218,26 @@ export default function Dashboard({ code }) {
                 <Player accessToken={accessToken} trackUri={playingTrack?.uri} playedTrack={playedTrack}/>
             </div>
         </Container>
-            <Container className="d-flex flex-column mt-5" style={{ height: "100vh" }}> 
+            <Container className="d-flex flex-column mt-5 center" style={{ height: "100vh" }}> 
                 <h3 className="graph-top-margin mb-3"><font color="white">How often an Artist Appears in your Top 50 Tracks</font></h3>
                 <div>
                     <ArtistTreeMap table={table} />
                 </div>
             </Container>
-            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+            <Container className="d-flex flex-column py-2 center" style={{ height: "100vh" }}>
                 <h3 className="mb-3"><font color="white">Your Favorite Genres</font></h3>
                 <div className="d-flex flex-row">
                     <GenreTreeMap table={table} />
                 </div>
             </Container>
-            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
+            <Container className="d-flex flex-column py-2 center" style={{ height: "100vh" }}> 
                 <h3 className="mb-3"><font color="white">The Duration of Your Top Songs</font></h3>
                 <div>
                     <div className="text-muted p"># of songs</div>
                     <Info table={table} />
                 </div>
             </Container>
-            <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}> 
+            <Container className="d-flex flex-column py-2 center" style={{ height: "100vh" }}> 
                 <h3 className="mb-3"><font color="white">The Audio Features You Prefer</font></h3>
                 <div className="d-flex flex-row div-1 ">
                     <ShowRadio audioFeats={audioFeats} />

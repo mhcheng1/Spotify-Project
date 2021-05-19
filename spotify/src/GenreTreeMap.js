@@ -72,12 +72,12 @@ export default function GenreTreeMap ( {table} ) {
         stroke="#fff"
         fill="#8884d8"
         />
-        <div className="centerRight mb-3">
-            <h5><font color="white">Here's the genre you listened to the most: </font></h5>
-            <br></br>
-            <h5><font color="white">{topGenre.TopGenre} </font></h5>
-            <p><font color="white" className="text-muted">{topGenre.Count} out of 50 tracks </font></p>
-        </div>
     </div>
   );
+//   <div className="centerRight mb-3">
+//             <h5><font color="white">Here's the genre you listened to the most: </font></h5>
+//             <br></br>
+//             <h5><font color="white">{topGenre.TopGenre} </font></h5>
+//             <p><font color="white" className="text-muted">{topGenre.Count} out of 50 tracks </font></p>
+//         </div>
 }

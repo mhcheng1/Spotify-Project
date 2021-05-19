@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import axios from 'axios'
+import UserFormGraph from './UserFormGraph'
 
 
 export default function UserForm( {audioFeats, userForm}) {
@@ -164,41 +164,35 @@ export default function UserForm( {audioFeats, userForm}) {
 
 
     const [track, setTrack] = useState([])
-    const [displayTrack, setDisplayTrack] = useState([])
+    const [tempo, setTempo] = useState(0)
+    const [dance, setDance] = useState(0)
+    const [loud, setLoud] = useState(0)
 
     useEffect(() => {
         if (finalTracks && finalTracks.length > 0) {
             const index = Math.floor(Math.random() * finalTracks.length)
             setTrack(finalTracks[index])
         }
+        console.log(track)
     }, [finalTracks])
 
     useEffect(() => {
-        console.log(track)
-        axios.get("http://localhost:3001/api/getTrackInfo", {
-            params: {
-            trackID: track.id
-            }
-        } ).then(response =>{
-            setDisplayTrack(response.data[0])
-        })
-        console.log(displayTrack)
+        if (track.length > 0) {
+            setTempo(Math.round(track.tempo))
+            setDance(Math.round(track.danceability * 10))
+            setLoud(track.loudness)
+        }
     }, [track])
 
+    
     return (
-        <div className="d-flex flex-column center">
+        <div className="d-flex flex-column center mt-3">
             <div className="d-flex mr-3">
-                <h5 className="ml-1"><font color="white">Tempo <h6 className="text-muted">{track.tempo}</h6></font></h5>
-                <h5 className="ml-1"><font color="white">Dance <h6 className="text-muted">{track.danceability}</h6></font></h5>
-                <h5 className="ml-1"><font color="white">Loudness <h6 className="text-muted">{track.loudness}</h6></font></h5>
+                <h5 className="ml-1"><font color="white">Tempo <h6 className="text-muted">{tempo} bpm</h6></font></h5>
+                <h5 className="ml-1"><font color="white">Dance <h6 className="text-muted">{dance} / 10</h6></font></h5>
+                <h5 className="ml-1"><font color="white">Loudness <h6 className="text-muted">{loud} db</h6></font></h5>
             </div>
-            <div className="d-flex flex-row">
-                <img src={displayTrack?.albumCover} style={{height:'64px', width:'64px'}} />
-                <div className="">
-                    <div className="p"><font color="white">{displayTrack?.track}</font></div>
-                    <div className="text-muted p">{displayTrack?.artist}</div>
-                </div>
-            </div>
+            <UserFormGraph track={track}  />
         </div>
     )
 }
