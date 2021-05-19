@@ -24,6 +24,11 @@ export default function UserForm( {audioFeats, userForm}) {
     const [loud2, setLoud2] = useState(0)
     const [loud3, setLoud3] = useState(0)
 
+    const [track, setTrack] = useState([])
+    const [tempo, setTempo] = useState(0)
+    const [dance, setDance] = useState(0)
+    const [loud, setLoud] = useState(0)
+
     useEffect(() => {
 
     }, [audioFeats])
@@ -61,7 +66,6 @@ export default function UserForm( {audioFeats, userForm}) {
     }, [userForm])
    
     useEffect(() => {
-        console.log(userForm)
         if (userForm.tempo !== 0 && userForm.danceability !== 0 && userForm.loudness !== 0) {
             if (userForm.tempo === "1") {
                 setFinalTracks1(tempo1)
@@ -146,7 +150,6 @@ export default function UserForm( {audioFeats, userForm}) {
             setLoud1(loud1Area)
             setLoud2(loud2Area)
             setLoud3(loud3Area)
-            console.log(Math.round(lArr.length / 3))
         }
     }, [finalTracks2])
     
@@ -162,29 +165,21 @@ export default function UserForm( {audioFeats, userForm}) {
         }
     }, [loud1, loud2, loud3])
 
-
-    const [track, setTrack] = useState([])
-    const [tempo, setTempo] = useState(0)
-    const [dance, setDance] = useState(0)
-    const [loud, setLoud] = useState(0)
-
     useEffect(() => {
         if (finalTracks && finalTracks.length > 0) {
             const index = Math.floor(Math.random() * finalTracks.length)
             setTrack(finalTracks[index])
         }
-        console.log(track)
     }, [finalTracks])
 
     useEffect(() => {
-        if (track.length > 0) {
+        if (track.tempo) {
             setTempo(Math.round(track.tempo))
             setDance(Math.round(track.danceability * 10))
             setLoud(track.loudness)
         }
     }, [track])
 
-    
     return (
         <div className="d-flex flex-column center mt-3">
             <div className="d-flex mr-3">

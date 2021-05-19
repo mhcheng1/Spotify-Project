@@ -67,8 +67,7 @@ export default function Info({ table }) {
                     fiveMinTrack++
                 }
                 
-            }
-            //console.log(oneMinTrack, twoMinTrack, threeMinTrack, fourMinTrack, fiveMinTrack)            
+            }      
             setData([{
                 name: "1 Minute",
                 Songs: oneMinTrack
@@ -115,17 +114,16 @@ export default function Info({ table }) {
         </AreaChart>
         <div className="flex-grow-1" style={{ overflowY: "auto" }}>
             
-            <h5 className="mt-3 mb-3"><font color="white">Shortest Track</font></h5>
+            <h5 className="mt-3 mb-3"><font color="white">Shortest Track: {shortestTrack.duration} sec</font></h5>
             <div className="d-flex align-items-center">
                     <img src={shortestTrack.albumCover} style={{height:'64px', width:'64px'}} />
                     <div>
                         <div className="p"><font color="white">{shortestTrack.track}</font></div>
                         <div className="text-muted p">{shortestTrack.artist}</div>
                     </div>
-                    <div className="p"><font color="white">{shortestTrack.duration} Seconds</font></div>
             </div>
             
-            <h5 className="mt-3 mb-3"><font color="white">Longest Track</font></h5>
+            <h5 className="mt-3 mb-3"><font color="white">Longest Track: {longestTrack.duration} sec</font></h5>
             
             <div className="d-flex align-items-center">
                     <img src={longestTrack.albumCover} style={{height:'64px', width:'64px'}} />
@@ -133,7 +131,6 @@ export default function Info({ table }) {
                         <div className="p"><font color="white">{longestTrack.track}</font></div>
                         <div className="text-muted p">{longestTrack.artist}</div>
                     </div>
-                    <div className="p"><font color="white">{longestTrack.duration} Seconds</font></div>
             </div>
         </div>
         </div>
