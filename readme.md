@@ -14,10 +14,8 @@ Analyzes the user's profile and present the following graphs:
 #### Link: https://mhcheng-spotifyapp.netlify.app/ <br>
 
 ## Libraries Used
-* spotify-web-api-node
-* https://www.npmjs.com/package/spotify-web-api-node
-* react-spotify-web-playback
-* https://www.npmjs.com/package/react-spotify-web-playback
+* [spotify-web-api-node](https://www.npmjs.com/package/spotify-web-api-node)
+* [react-spotify-web-playback](https://www.npmjs.com/package/react-spotify-web-playback)
 * express
 * cors
 * react-bootstrap
