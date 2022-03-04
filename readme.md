@@ -8,14 +8,22 @@ The application makes use of Spotify auth and contains music playing functionali
 
 ## Features
 A functional web player with search function implemented.
+
 * User's favorite artist
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph3.png" width="650"><br>
+
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph3.png" width="650">
+
 * Duration of user's most listened songs
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph2.png" width="650"><br>
+
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph2.png" width="650">
+
 * Preference of audio features in a song, such as danceability and liveness
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph1.png" width="650"><br>
+
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph1.png" width="650">
+
 * User can search for a song based on the mood. For instance a user can search for a slow groovy song suitable for dancing.
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/custom_search.png" width="650"><br>
+
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/custom_search.png" width="650">
 
 ## Technical Architecture 
 
