@@ -9,16 +9,13 @@ The application makes use of Spotify auth and contains music playing functionali
 ## Features
 A functional web player with search function implemented.
 * User's favorite artist
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph3.png" width="650">
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph3.png" width="650"><br>
 * Duration of user's most listened songs
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph2.png" width="650">
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph2.png" width="650"><br>
 * Preference of audio features in a song, such as danceability and liveness
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph1.png" width="650">
-* Favorite genres
-<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/custom_search.png" width="650">
-
-User can search for a song based on the mood. For instance a user can search for a slow groovy song suitable for dancing.
-User can search and play songs directly using the application.
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/graph1.png" width="650"><br>
+* User can search for a song based on the mood. For instance a user can search for a slow groovy song suitable for dancing.
+<img src= "https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/custom_search.png" width="650"><br>
 
 ## Technical Architecture 
 
@@ -48,3 +45,32 @@ Spotify User Authorization Flow
 
 Documentation for Spotify Web API for auth: https://developer.spotify.com/documentation/web-api/ <br><br>
 
+### Run the App Locally
+
+Spotify account is required to run this app as it uses Spotify's Developer Api
+
+Enter frontend directory from root directory
+
+`cd front-end`
+
+Download requirements
+
+`npm install`
+
+Run
+
+`npm start`
+
+Enter server directory from root directory
+
+`cd server`
+
+Download requirements
+
+`npm install`
+
+Run
+
+`node server.js`
+
+Update the env variables with your Spotify Client ID and Secret at [Spotify For Developer](https://developer.spotify.com/)
