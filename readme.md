@@ -42,16 +42,16 @@ Diagram:
 
 ![Technical Architecture](Documentation/Architecture.png)
 
-Spotify User Authorization Flow
+Spotify User Authorization Flow:
+
 ![Spotify User Auth Flow](Documentation/Spotify-Auth-Flow.png)
+
 [Reference: https://developer.spotify.com/documentation/general/guides/authorization/code-flow/]
 
 ## Libraries Used
 * [spotify-web-api-node](https://www.npmjs.com/package/spotify-web-api-node)
 * [react-spotify-web-playback](https://www.npmjs.com/package/react-spotify-web-playback)
 * recharts
-
-Documentation for Spotify Web API for auth: https://developer.spotify.com/documentation/web-api/ <br><br>
 
 ### Run the App Locally
 
