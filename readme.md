@@ -1,5 +1,5 @@
 # Spotify Song Preferences and Player
-[link](https://mhcheng-spotifyapp.netlify.app/)
+[Link to the Site](https://mhcheng-spotifyapp.netlify.app/)
 
 The application makes use of Spotify auth and contains music playing functionality. In addition, it presents a visualization of the user's song preference as various graphs, and includes a feature that can select songs based on the user's mood.
 
