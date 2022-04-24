@@ -1,10 +1,8 @@
 # Spotify-With-Data
 
-## A Spotify player application that shows you data on your music preferences, and allows custom song recommendation based on mood
+### A Spotify player application that shows you data on your music preferences, and allows custom song recommendation based on mood
 
 [Link to the Site](https://mhcheng-spotifyapp.netlify.app/)
-
-The application makes use of Spotify auth and contains music playing functionality. In addition, it presents a visualization of the user's song preference as various graphs, and includes a feature that can select songs based on the user's mood.
 
 ## Demo:
 <img src="https://github.com/mhcheng1/Meng-Hsin_Cheng/blob/main/Spotify-Project/demo/SpotifyApp.gif" width="650">
